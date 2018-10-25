@@ -9,5 +9,8 @@ namespace AsyncInn.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
+
+        //Navigation Properties
+        public ICollection<RoomAmenities> Rooms { get; set; }
     }
 }

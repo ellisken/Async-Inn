@@ -3,14 +3,16 @@ using AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181025180858_AddNavigationProperties")]
+    partial class AddNavigationProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,12 +100,12 @@ namespace AsyncInn.Migrations
             modelBuilder.Entity("AsyncInn.Models.HotelRoom", b =>
                 {
                     b.HasOne("AsyncInn.Models.Hotel", "Hotel")
-                        .WithMany("Rooms")
+                        .WithMany()
                         .HasForeignKey("HotelID")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithMany("Hotels")
+                        .WithMany()
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -111,12 +113,12 @@ namespace AsyncInn.Migrations
             modelBuilder.Entity("AsyncInn.Models.RoomAmenities", b =>
                 {
                     b.HasOne("AsyncInn.Models.Amenities", "Amenity")
-                        .WithMany("Rooms")
+                        .WithMany()
                         .HasForeignKey("AmenitiesID")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithMany("Amenities")
+                        .WithMany()
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
