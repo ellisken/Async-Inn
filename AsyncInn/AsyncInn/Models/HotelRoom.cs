@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,13 @@ namespace AsyncInn.Models
         public int RoomNumber { get; set; }
         [ForeignKey ("Room")]
         public int RoomID { get; set; }
+
+        [Required(ErrorMessage = "Please provide a nightly rate")]
+        [Display(Name = "Nightly Rate")]
         public decimal Rate { get; set; }
+
+        [Required(ErrorMessage = "Please indicate pet friendliness")]
+        [Display(Name = "Pet friendly?")]
         public bool PetFriendly { get; set; }
 
         //Navigation Properties
