@@ -16,7 +16,7 @@ namespace AsyncInn.Models
 
         [Required(ErrorMessage ="Please select a layout")]
         [EnumDataType(typeof(Layout))]
-        public int Layout { get; set; }
+        public Layout Layout { get; set; }
 
         //Navigation Properties
         public ICollection<RoomAmenities> Amenities { get; set; }
@@ -25,8 +25,11 @@ namespace AsyncInn.Models
 
     public enum Layout
     {
+        [Display(Name = "Studio")]
         Studio = 1,
+        [Display(Name = "1 Bedroom")]
         OneBedroom,
+        [Display(Name = "2 Bedroom")]
         TwoBedroom
     }
 }

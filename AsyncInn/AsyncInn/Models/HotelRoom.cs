@@ -10,10 +10,12 @@ namespace AsyncInn.Models
     public class HotelRoom
     {
         [ForeignKey("Hotel")]
+        [Display(Name = "Hotel")]
         public int HotelID { get; set; }
-        public int RoomNumber { get; set; }
         [ForeignKey ("Room")]
+        [Display(Name = "Room")]
         public int RoomID { get; set; }
+        public int RoomNumber { get; set; }
 
         [Required(ErrorMessage = "Please provide a nightly rate")]
         [Display(Name = "Nightly Rate")]
