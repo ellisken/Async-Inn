@@ -52,12 +52,16 @@ a.main {
     color: blue
 }
 
-a.create{
-    width: 200px;
-    padding: 10px 5px;
-    background-color: forestgreen;
-    margin: 30px auto;
+a.create {
+    font-size: 12px;
+    background-color: #4CAF50;
     color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    margin: 20px auto;
 }
 
 input, select{
