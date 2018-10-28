@@ -4,13 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<head>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+
+
+<h2>Manage Room Amenities</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
     <a asp-controller="Home" asp-action="Index">Home</a>
+    <a asp-action="Create" class="create">Create New</a>
 </p>
-<table class="table">
+<table>
     <thead>
         <tr>
             <th>
@@ -19,24 +24,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.Room)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amenity.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room.ID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amenity.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.Name)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

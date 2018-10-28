@@ -3,14 +3,16 @@ using AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181028032842_newData")]
+    partial class newData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,7 +63,7 @@ namespace AsyncInn.Migrations
 
                     b.HasData(
                         new { ID = 1, Address = "123 3rd Ave.", Name = "Belltown", Phone = "206-123-4567" },
-                        new { ID = 2, Address = "123 Main St.", Name = "Bellevue", Phone = "425-123-4567" },
+                        new { ID = 2, Address = "123 3rd Ave.", Name = "Belltown", Phone = "206-123-4567" },
                         new { ID = 3, Address = "4567 NE 50th St.", Name = "University District", Phone = "206-891-2345" },
                         new { ID = 4, Address = "8910 NW Market St.", Name = "Ballard", Phone = "206-678-9123" },
                         new { ID = 5, Address = "123 Naito Way", Name = "Portland", Phone = "503-123-4567" },

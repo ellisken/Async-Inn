@@ -4,13 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<head>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+
+<h2>Rooms</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
     <a asp-controller="Home" asp-action="Index">Home</a>
+    <a asp-action="Create" class="create">Create New</a>
 </p>
-<table class="table">
+<table>
     <thead>
         <tr>
             <th>
@@ -19,7 +23,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Layout)
             </th>
-            <th></th>
+            <th>Options</th>
         </tr>
     </thead>
     <tbody>
