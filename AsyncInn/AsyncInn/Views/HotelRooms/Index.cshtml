@@ -4,11 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
+
+<head>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+
 <h2>Manage Hotel Rooms</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
     <a asp-controller="Home" asp-action="Index">Home</a>
+    <a asp-action="Create" class="create">Create New</a>
 </p>
 <table>
     <thead>
@@ -28,24 +33,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hotel.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rate)
-            </td>
-            <td>
-                @if (item.PetFriendly)
-                {<text>Yes</text>}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    @if (item.PetFriendly)
+                    {<text>Yes</text>}
                 else
                 { <text>No</text>}
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -9,12 +9,35 @@ h1 {
     color: black;
 }
 
+
+/*Index page titles*/
+hr {
+    width: 300px;
+    margin: auto;
+}
+
 ul {
     list-style: none;
 }
 
-a {
+p a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+a.main {
     text-decoration: none;
     font-size: 15px;
     color: blue
 }
+
+a.create{
+    border: 2px dotted black;
+    width: 200px;
+    padding: 10px 5px;
+    background-color: forestgreen;
+    margin: 30px auto;
+}
+
+
