@@ -11,10 +11,30 @@ h1 {
 
 
 /*Index page titles*/
-hr {
+h2 {
     width: 300px;
     margin: auto;
 }
+
+table{
+    font-family: Verdana;
+    font-size: 11px;
+    border-width: 1px;
+    border-color: black;
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+
+}
+
+th, td{
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: black;
+    text-align: left;
+}
+
 
 ul {
     list-style: none;
@@ -33,11 +53,37 @@ a.main {
 }
 
 a.create{
-    border: 2px dotted black;
     width: 200px;
     padding: 10px 5px;
     background-color: forestgreen;
     margin: 30px auto;
+    color: white;
 }
 
+input, select{
+    width: 30%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+label{
+    display:block
+}
+
+form{
+    text-align: left;
+}
 
