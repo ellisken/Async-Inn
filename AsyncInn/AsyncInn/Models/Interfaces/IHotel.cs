@@ -5,7 +5,19 @@ using System.Threading.Tasks;
 
 namespace AsyncInn.Models.Interfaces
 {
-    public class IHotel
+    public interface IHotel
     {
+        //Create
+        Task CreateHotel(Hotel hotel);
+
+        //Read
+        Task<List<Hotel>> GetHotels();
+        Task<Hotel> GetHotel(int? id);
+
+        //Update
+        Task UpdateHotel(Hotel hotel);
+
+        //Delete
+        Task DeleteHotel(int id);
     }
 }
