@@ -5,7 +5,22 @@ using System.Threading.Tasks;
 
 namespace AsyncInn.Models.Interfaces
 {
-    public class IAmenities
+    public interface IAmenities
     {
+
+        //Create
+        Task CreateAmenity(Amenities amenity);
+
+        //Read
+        Task<List<Amenities>> GetAmenities();
+        Task<Amenities> GetAmenity(int? id);
+
+        //Update
+        Task UpdateAmenity(Amenities amenity);
+
+        //Delete
+        Task DeleteAmenity(int id);
+
+
     }
 }
