@@ -1,5 +1,5 @@
 # Async-Inn
-Basic MVC app for a hotel management system. Created for Code Fellows Code 401 to practice MVC and EF Core.
+Basic MVC app for a hotel management system. Created for Code Fellows Code 401 to practice MVC and EF Core. Uses Dependency Injection (Repository Design Pattern)
 
 ## Installation/Usage
 Clone the repository, open the AsyncInn solution in Visual Studio, and run IIS Express. This should open the website in your browser.
