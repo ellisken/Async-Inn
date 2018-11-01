@@ -14,6 +14,12 @@
     <a asp-controller="Home" asp-action="Index">Home</a>
     <a asp-action="Create" class="create">Create New</a>
 </p>
+
+<form method="post">
+    <input type="text" asp-all-route-data="searchterm" placeholder="Enter search term here" name="searchString" />
+    <button type="submit">Search</button>
+</form>
+
 <table>
     <thead>
         <tr>
