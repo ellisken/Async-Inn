@@ -9,6 +9,10 @@ h1 {
     color: black;
 }
 
+nav{
+    margin: 30px;
+}
+
 
 /*Index page titles*/
 h2 {
@@ -35,11 +39,6 @@ th, td{
     text-align: left;
 }
 
-
-ul {
-    list-style: none;
-}
-
 p a {
     display: block;
     margin-top: 20px;
@@ -49,7 +48,11 @@ p a {
 a.main {
     text-decoration: none;
     font-size: 15px;
-    color: blue
+    color: white;
+    background-color: teal;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 10px 20px;
 }
 
 a.create {

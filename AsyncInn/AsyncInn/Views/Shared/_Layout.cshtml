@@ -6,13 +6,14 @@
 </head>
 <body>
     <h1>Async Inn Hotel Management System</h1>
-    <ul>
-        <li><a asp-controller="Hotels" asp-action="Index" class="main">Hotels</a></li>
-        <li><a asp-controller="Amenities" asp-action="Index" class="main">Amenities</a></li>
-        <li><a asp-controller="Rooms" asp-action="Index" class="main">Rooms</a></li>
-        <li><a asp-controller="HotelRooms" asp-action="Index" class="main">Manage hotel rooms</a></li>
-        <li><a asp-controller="RoomAmenities" asp-action="Index" class="main">Manage room amenities</a></li>
-    </ul>
+    <nav>
+        <a asp-controller="Hotels" asp-action="Index" class="main">Hotels</a>
+        <a asp-controller="Amenities" asp-action="Index" class="main">Amenities</a>
+        <a asp-controller="Rooms" asp-action="Index" class="main">Rooms</a>
+        <a asp-controller="HotelRooms" asp-action="Index" class="main">Manage hotel rooms</a>
+        <a asp-controller="RoomAmenities" asp-action="Index" class="main">Manage room amenities</a>
+    </nav>
+        
     <main>
         @RenderBody();
     </main>
