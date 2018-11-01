@@ -5,7 +5,7 @@
     <link href="~/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Async Inn Hotel Management System</h1>
+    <h1 class="layout">Async Inn Hotel Management System</h1>
     <nav>
         <a asp-controller="Hotels" asp-action="Index" class="main">Hotels</a>
         <a asp-controller="Amenities" asp-action="Index" class="main">Amenities</a>
@@ -13,7 +13,7 @@
         <a asp-controller="HotelRooms" asp-action="Index" class="main">Manage hotel rooms</a>
         <a asp-controller="RoomAmenities" asp-action="Index" class="main">Manage room amenities</a>
     </nav>
-        
+
     <main>
         @RenderBody();
     </main>

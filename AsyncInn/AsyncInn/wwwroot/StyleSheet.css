@@ -9,6 +9,10 @@ h1 {
     color: black;
 }
 
+h1.layout{
+    font-size: 30px;
+}
+
 nav{
     margin: 30px;
 }
@@ -50,7 +54,7 @@ a.main {
     font-size: 15px;
     color: white;
     background-color: teal;
-    border: 2px solid black;
+    border: 2px solid teal;
     border-radius: 4px;
     padding: 10px 20px;
 }
