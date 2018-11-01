@@ -1,14 +1,5 @@
-﻿<head>
-    <link href="~/StyleSheet.css" rel="stylesheet" />
-</head>
-<body>
-    <h1>Welcome to the Async Inn Hotel Management System!</h1>
-    <ul>
-        <li><a asp-controller="Hotels" asp-action="Index" class="main">Hotels</a></li>
-        <li><a asp-controller="Amenities" asp-action="Index" class="main">Amenities</a></li>
-        <li><a asp-controller="Rooms" asp-action="Index" class="main">Rooms</a></li>
-        <li><a asp-controller="HotelRooms" asp-action="Index" class="main">Manage hotel rooms</a></li>
-        <li><a asp-controller="RoomAmenities" asp-action="Index" class="main">Manage room amenities</a></li>
-    </ul>
-</body>
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
 
