@@ -1,4 +1,6 @@
+using AsyncInn.Data;
 using AsyncInn.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using Xunit;
 
@@ -180,9 +182,266 @@ namespace UnitTestAsyncInn
             Assert.True(hr.PetFriendly);
         }
 
-        //Test CRUD Amenity
+        //Test Create and Read Amenity
+        [Fact]
+        public async void CreateAmenityDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("CreateAmenity")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create amenity and assign values
+                Amenities a = new Amenities();
+                a.Name = "AC";
+                context.Amenities.Add(a);
+                context.SaveChanges();
+
+                //Act
+                var amenity = await context.Amenities.FirstOrDefaultAsync(x => x.Name == a.Name);
+
+                //Assert - grab from db and assert entry
+                Assert.Equal(amenity.Name, a.Name);
+            }
+        }
+
+        //Test Update Amenity
+        [Fact]
+        public async void UpdateAmenityDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("UpdateAmenity")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create amenity and assign values
+                Amenities a = new Amenities();
+                a.Name = "AC";
+                context.Amenities.Add(a);
+                context.SaveChanges();
+
+                //Act
+                var amenity = await context.Amenities.FirstOrDefaultAsync(x => x.Name == a.Name);
+
+                amenity.Name = "Balcony";
+                int id = amenity.ID;
+
+                var updatedAmenity = await context.Amenities.FirstOrDefaultAsync(x => x.ID == id);
+
+                //Assert - grab from db and assert entry
+                Assert.Equal("Balcony", updatedAmenity.Name);
+            }
+        }
+
+        //Test Delete Amenity
+        [Fact]
+        public async void DeleteAmenityDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("DeleteAmenity")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create amenity and assign values
+                Amenities a = new Amenities();
+                a.Name = "AC";
+                context.Amenities.Add(a);
+                context.SaveChanges();
+
+                //Act
+                var amenity = await context.Amenities.FirstOrDefaultAsync(x => x.Name == a.Name);
+                int id = amenity.ID;
+
+                context.Amenities.Remove(amenity);
+                await context.SaveChangesAsync();
+
+                var deletedAmenity = await context.Amenities.FirstOrDefaultAsync(x => x.ID == id);
+
+                //Assert - grab from db and assert entry
+                Assert.Null(deletedAmenity);
+            }
+        }
+
         //Test CRUD Hotel
+        //Test Create and Read Hotel
+        [Fact]
+        public async void CreateHotelDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("CreateHotel")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create hotel and assign values
+                Hotel h = new Hotel();
+                h.Name = "Seattle";
+                context.Hotels.Add(h);
+                context.SaveChanges();
+
+                //Act
+                var hotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == h.Name);
+
+                //Assert - grab from db and assert entry
+                Assert.Equal(hotel.Name, h.Name);
+            }
+        }
+
+        //Test Update Hotel
+        [Fact]
+        public async void UpdateHotelDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("UpdateHotel")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create hotel and assign values
+                Hotel h = new Hotel();
+                h.Name = "Seattle";
+                context.Hotels.Add(h);
+                context.SaveChanges();
+
+                //Act
+                var hotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == h.Name);
+
+                hotel.Name = "Bellevue";
+                int id = hotel.ID;
+
+                var updatedHotel = await context.Hotels.FirstOrDefaultAsync(x => x.ID == id);
+
+                //Assert - grab from db and assert entry
+                Assert.Equal("Bellevue", updatedHotel.Name);
+            }
+        }
+
+        //Test Delete Hotel
+        [Fact]
+        public async void DeleteHotelDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("DeleteHotel")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create hotel and assign values
+                Hotel h = new Hotel();
+                h.Name = "Seattle";
+                context.Hotels.Add(h);
+                context.SaveChanges();
+
+                //Act
+                var hotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == h.Name);
+                int id = hotel.ID;
+
+                context.Hotels.Remove(hotel);
+                await context.SaveChangesAsync();
+
+                var deletedHotel = await context.Hotels.FirstOrDefaultAsync(x => x.ID == id);
+
+                //Assert - grab from db and assert entry
+                Assert.Null(deletedHotel);
+            }
+        }
+
+
         //Test CRUD Room
+        [Fact]
+        public async void CreateRoomDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("CreateRoom")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create hotel and assign values
+                Room r = new Room();
+                r.Name = "economy";
+                context.Rooms.Add(r);
+                context.SaveChanges();
+
+                //Act
+                var room = await context.Rooms.FirstOrDefaultAsync(x => x.Name == r.Name);
+
+                //Assert - grab from db and assert entry
+                Assert.Equal(room.Name, r.Name);
+            }
+        }
+
+        //Test Update Hotel
+        [Fact]
+        public async void UpdateRoomDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("UpdateRoom")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create hotel and assign values
+                Room r = new Room();
+                r.Name = "economy";
+                context.Rooms.Add(r);
+                context.SaveChanges();
+
+                //Act
+                var room = await context.Rooms.FirstOrDefaultAsync(x => x.Name == r.Name);
+
+                room.Name = "deluxe";
+                int id = room.ID;
+
+                var updatedRoom = await context.Rooms.FirstOrDefaultAsync(x => x.ID == id);
+
+                //Assert - grab from db and assert entry
+                Assert.Equal("deluxe", updatedRoom.Name);
+            }
+        }
+
+        //Test Delete Hotel
+        [Fact]
+        public async void DeleteRoomDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("DeleteRoom")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                //Arrange - create hotel and assign values
+                Room r = new Room();
+                r.Name = "economy";
+                context.Rooms.Add(r);
+                context.SaveChanges();
+
+                //Act
+                var room = await context.Rooms.FirstOrDefaultAsync(x => x.Name == r.Name);
+
+                int id = room.ID;
+
+                context.Rooms.Remove(room);
+                await context.SaveChangesAsync();
+
+                var deletedRoom = await context.Rooms.FirstOrDefaultAsync(x => x.ID == id);
+
+                //Assert - grab from db and assert entry
+                Assert.Null(deletedRoom);
+            }
+        }
         //Test CRUD HotelROom
         //Test CRUD RoomAmenities
 
