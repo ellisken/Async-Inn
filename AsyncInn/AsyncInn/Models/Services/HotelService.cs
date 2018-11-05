@@ -17,12 +17,14 @@ namespace AsyncInn.Models.Services
             _context = context;
         }
 
+        //Create hotel
         public async Task CreateHotel(Hotel hotel)
         {
             _context.Hotels.Add(hotel);
             await _context.SaveChangesAsync();
         }
 
+        //Delete hotel
         public async Task DeleteHotel(int id)
         {
             Hotel hotel = await GetHotel(id);
@@ -30,16 +32,19 @@ namespace AsyncInn.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        //Get specific hotel
         public async Task<Hotel> GetHotel(int? id)
         {
             return await _context.Hotels.FirstOrDefaultAsync(x => x.ID == id);
         }
 
+        //Get list of all hotels
         public async Task<List<Hotel>> GetHotels()
         {
             return await _context.Hotels.ToListAsync();
         }
 
+        //Update a hotel
         public async Task UpdateHotel(Hotel hotel)
         {
             _context.Hotels.Update(hotel);
