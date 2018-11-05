@@ -26,6 +26,9 @@
                 @Html.DisplayNameFor(model => model.Room)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Rate)
             </th>
             <th>
@@ -36,23 +39,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hotel.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Room.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rate)
-                </td>
-                <td>
-                    @if (item.PetFriendly)
-                    {<text>Yes</text>}
-                else
-                { <text>No</text>}
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @if (item.PetFriendly)
+                {<text>Yes</text>}
+            else
+            { <text>No</text>}
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -20,12 +20,15 @@ namespace AsyncInn.Models.Services
             _context = context;
         }
 
+
+        // Creates an amenity  
         public async Task CreateAmenity(Amenities amenity)
         {
             _context.Amenities.Add(amenity);
             await _context.SaveChangesAsync();
         }
 
+        // Deletes an amenity
         public async Task DeleteAmenity(int id)
         {
             Amenities amenity = await GetAmenity(id);
@@ -33,16 +36,19 @@ namespace AsyncInn.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        //Returns a list of all amenities
         public async Task<List<Amenities>> GetAmenities()
         {
             return await _context.Amenities.ToListAsync();
         }
 
+        //Returns a single amenity
         public async Task<Amenities> GetAmenity(int? id)
         {
             return await _context.Amenities.FirstOrDefaultAsync(x => x.ID == id);
         }
 
+        //Updates an amenity
         public async Task UpdateAmenity(Amenities amenity)
         {
             _context.Amenities.Update(amenity);

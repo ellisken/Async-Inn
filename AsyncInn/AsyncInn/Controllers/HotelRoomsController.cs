@@ -42,15 +42,20 @@ namespace AsyncInn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
         {
+            //Check for duplicate entries
+            if(_context.HotelRooms.Any(hr => hr.RoomNumber == hotelRoom.RoomNumber))
+            {
+                ModelState.AddModelError("", $"Room {hotelRoom.RoomNumber} already exists.");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(hotelRoom);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID", hotelRoom.HotelID);
-            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "ID", hotelRoom.RoomID);
-            return View(hotelRoom);
+            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "Name");
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name");
+            return View();
         }
     }
 }
